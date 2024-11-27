@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}HMG - Leavers{% endblock %}
+{% block page_head %}Restrict Leaver Access{% endblock %}
+{% block page_body %}
+<h6>Use this page to remove access rights of leavers</h6>
+<table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Department</th>
+                <th scope="col">Hire Date</th>
+                <th scope="col">Leave Date</th>
+                <th scope="col">Days Since Leave</th>
+                <th scope="col">Monday Access</th>
+                <th scope="col">Jira Access</th>
+                <th scope="col">Slack Access</th>
+
+            </tr>
+            </thead>
+            <tbody>
+                {% for item in leaver_hits %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.first_name }}</td>
+                    <td>{{ item.last_name }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.role }}</td>
+                    <td>{{ item.department }}</td>
+                    <td>{{ item.hire_date }}</td>
+                    <td>{{ item.leave_date }}</td>
+                    <td>{{ item.days_since_leave }}</td>
+                    <td>{{ item.monday_access }}</td>
+                    <td>{{ item.jira_access }}</td>
+                    <td>{{ item.slack_access }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+<form method="post">
+    <input type="submit" value="Restrict">
+</form>
+{% endblock %}

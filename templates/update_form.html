@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Update Form{% endblock %}
+{% block page_head %}Update Employee{% endblock %}
+{% block page_body %}
+<h6>Make changes to Employee with ID: {{ employee_id }}</h6>
+<form method="post">
+  <label for="first_name">First name:</label><br>
+  <input type="text" id="first_name" name="first_name" value="{{ employee_record.first_name }}"><br>
+
+  <label for="last_name">Last name:</label><br>
+  <input type="text" id="last_name" name="last_name" value="{{ employee_record.last_name }}"><br>
+
+    <label for="email">Email</label><br>
+  <input type="text" id="email" name="email" value="{{ employee_record.email }}"><br>
+
+    <label for="role">Role</label><br>
+  <input type="text" id="role" name="role" value="{{ employee_record.role }}"><br>
+
+    <label for="department">Department</label><br>
+  <input type="text" id="department" name="department" value="{{ employee_record.department }}"><br>
+
+    <label for="hire_date">Hire Date</label><br>
+  <input type="text" id="hire_date" name="hire_date" value="{{ employee_record.hire_date }}"><br>
+
+    <label for="leave_date">Leave Date</label><br>
+  <input type="text" id="leave_date" name="leave_date" value="{{ employee_record.leave_date }}"><br>
+
+    <label for="monday_access">Monday Access</label><br>
+  <input type="text" id="monday_access" name="monday_access" value="{{ employee_record.monday_access }}"><br>
+
+    <label for="jira_access">Jira Access</label><br>
+  <input type="text" id="jira_access" name="jira_access" value="{{ employee_record.jira_access }}"><br>
+
+  <label for="slack_access">Slack Access</label><br>
+  <input type="text" id="slack_access" name="slack_access" value="{{ employee_record.jira_access }}"><br>
+    <br>
+  <input type="submit" value="Update Record">
+</form>
+{% endblock %}

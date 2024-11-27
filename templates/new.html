@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}HMG - New Hire{% endblock %}
+{% block page_head %}Onboard A New Hire{% endblock %}
+{% block page_body %}
+<h6>Create and add a new hire to the user database</h6>
+<form action="{{ url_for('new') }}" method="post">
+  <label for="first_name">First name:</label><br>
+  <input type="text" id="first_name" name="first_name" placeholder="John"><br>
+
+  <label for="last_name">Last name:</label><br>
+  <input type="text" id="last_name" name="last_name" placeholder="Doe"><br>
+
+    <label for="email">Email</label><br>
+  <input type="text" id="email" name="email" placeholder="someone@example.com"><br>
+
+    <label for="role">Role</label><br>
+  <input type="text" id="role" name="role" placeholder="DevOps Engineer"><br>
+
+    <label for="department">Department</label><br>
+  <input type="text" id="department" name="department" placeholder="Sky Labs"><br>
+
+    <label for="hire_date">Hire Date</label><br>
+  <input type="text" id="hire_date" name="hire_date" placeholder="1990-1-1"><br>
+
+    <label for="monday_access">Monday Access</label><br>
+  <input type="text" id="monday_access" name="monday_access" placeholder="False"><br>
+
+    <label for="jira_access">Jira Access</label><br>
+  <input type="text" id="jira_access" name="jira_access" placeholder="False"><br>
+
+    <label for="slack_access">Slack Access</label><br>
+  <input type="text" id="slack_access" name="slack_access" placeholder="False"><br>
+    <br>
+  <input type="submit" value="Add Hire">
+</form>
+{% endblock %}

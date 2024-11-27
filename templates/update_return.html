@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Leavers{% endblock %}
+{% block page_head %}Update Employee{% endblock %}
+{% block page_body %}
+<h6>Would you like to edit the record below?</h6>
+<table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Department</th>
+                <th scope="col">Hire Date</th>
+                <th scope="col">Leave Date</th>
+                <th scope="col">Days Since Leave</th>
+                <th scope="col">Monday Access</th>
+                <th scope="col">Jira Access</th>
+                <th scope="col">Slack Access</th>
+
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ employee_record.id }}</td>
+                    <td>{{ employee_record.first_name }}</td>
+                    <td>{{ employee_record.last_name }}</td>
+                    <td>{{ employee_record.email }}</td>
+                    <td>{{ employee_record.role }}</td>
+                    <td>{{ employee_record.department }}</td>
+                    <td>{{ employee_record.hire_date }}</td>
+                    <td>{{ employee_record.leave_date }}</td>
+                    <td>{{ employee_record.days_since_leave }}</td>
+                    <td>{{ employee_record.monday_access }}</td>
+                    <td>{{ employee_record.jira_access }}</td>
+                    <td>{{ employee_record.slack_access }}</td>
+                </tr>
+            </tbody>
+        </table>
+<form method="post">
+    <input name="action" type="submit" value="Edit">
+    <input name="action" type="submit" value="Cancel">
+</form>
+{% endblock %}

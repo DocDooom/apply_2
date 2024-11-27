@@ -1,0 +1,43 @@
+variables:
+        IMG_NAME: gabrieldesir/apply_2_app
+        IMG_TAG: apply-2-app-1.0
+
+stages:
+    - test
+    - build
+    - heroku_stage
+
+run_tests:
+    stage: test
+    image: python:3.11
+    before_script:
+        - apt-get update && apt-get install make
+        - pip install -r requirements.txt
+    script:
+        - make test
+
+build_image:
+    stage: build
+    image: docker:26.0.0-rc1-cli
+    services:
+        - docker:26.0.0-rc1-dind
+    variables:
+        DOCKER_TLS_CERTDIR: "/certs"
+    before_script:
+        - docker login -u $DOCKER_USER -p $DOCKER_PASS
+    script:
+        - docker build -t $IMG_NAME:$IMG_TAG .
+        - docker push $IMG_NAME:$IMG_TAG
+    only:
+        - develop
+
+deploy_stage:
+    stage: heroku_stage
+    image: ruby:latest
+    script:
+        - apt-get update -qy
+        - apt-get install -y ruby-dev
+        - gem install dpl
+        - dpl --provider=heroku --app=apply2-app --api-key=$HEROKU_KEY
+    only:
+        - develop

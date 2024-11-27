@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home - Browse{% endblock %}
+{% block page_head %}Update An Employee{% endblock %}
+{% block page_body %}
+<h6>Make changes to employee records</h6>
+<form action="{{ url_for('update') }}" method="post">
+    <label for="get_employee">Get Employee</label><br>
+    <input type="text" id="get_employee" name="get_employee" placeholder="Enter employee ID"><br>
+    <br>
+    <input type="submit" value="Search">
+</form>
+<br>
+<p>{{ message }}</p>
+
+{% endblock %}
